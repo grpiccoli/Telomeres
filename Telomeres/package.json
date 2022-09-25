@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "crypto-js": "4.1.1",
+    "node-fetch": "3.2.10"
+  }
+}
