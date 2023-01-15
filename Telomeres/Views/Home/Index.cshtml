@@ -1,8 +1,31 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h3>   Welcame @User.Identity?.Name! to Telomeres</h3>
+        <div></div>
+        <h5>Actions</h5>
+        <div class="btn-group-sm">
+            <a class="btn btn-primary btn-" asp-controller="Reports" asp-action="Index">Show my reports</a>
+            <a class="btn btn-primary" asp-controller="Payments" asp-action="Index">Show my payments</a>
+        </div>
+        
+    }else
+    {
+        <h3 class="display-4">Welcome to Telomeres</h3>
+        <div class="space-v"></div>  
+        
+        
+        <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Login to continue</a>
+    }
+
+    
 </div>

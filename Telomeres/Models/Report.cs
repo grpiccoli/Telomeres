@@ -8,10 +8,11 @@ namespace FlowWebApp.Models
     {
         public int Id { get; set; }
         public virtual ICollection<Payment> Payments { get; internal set; } = new List<Payment>();
+
+        [NotMapped]
+        public virtual IFormFile UploadFile { get; set; }
         [AllowNull, NotMapped]
-        public virtual IFormFile UploadFile { get; internal set; }
-        [AllowNull, NotMapped]
-        public virtual IFormFile DownloadFile { get; internal set; }
+        public virtual IFormFile DownloadFile { get; set; }
         [AllowNull]
         public virtual IdentityUser ApplicationUser { get; set; }
         public bool Active() => Payments is not null && Payments.Any() && !Payments.Any(p => p.OverDue());

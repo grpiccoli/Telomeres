@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FlowWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FlowWebApp.Models;
-using FlowWebApp;
-using Flow;
 using Telomeres.Data;
 
 namespace FlowWebApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class PaymentController : Controller
     {
         private readonly IFlow _flow;
