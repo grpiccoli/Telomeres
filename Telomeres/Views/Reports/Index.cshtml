@@ -34,7 +34,7 @@
             </tr>
         }
 
-       
+
 
         @foreach (var item in Model)
         {
@@ -55,24 +55,31 @@
         }
         <tr title="this row is a demo for a existent record for your report">
             <td>
-                <i class="fa fa-file-pdf"></i>
-                A filename
+                <i class="fa fa-file-pdf" style="color: dimgray"></i>
+                A_filename
             </td>
             <td>
                 <span style="color: green;" title="This file is allowed for download">
                     <i class="fa fa-check"></i>
                     Available
                 </span>
-
+                |
                 <span style="color: darkred;" title="This file needs a prior payment for download">
                     <i class="fa fa-clock"></i>
                     Pending payment
                 </span>
             </td>
             <td>
-                <a href="">
+
+
+                <a href="" class="btn btn-sm ">
                     <i class="fa fa-download"></i>
                     Download
+                </a>
+                |
+                <a href="" class="btn btn-sm">
+                    <i class="fa fa-credit-card"></i>
+                    Pay
                 </a>
             </td>
 
@@ -80,7 +87,26 @@
     </tbody>
     <tfoot>
         <tr>
-            <th colspan="2">Found (0) matches</th>
+            <th colspan="2">Found (@Model.Count()) matches</th>
         </tr>
     </tfoot>
 </table>
+
+
+@if (ViewBag.show_success)
+{
+<div class="alert alert-sm alert-success">
+    <i class="fa fa-check"></i>
+    Your file uploaded successfully
+    @ViewBag.message
+</div>
+}
+@if (ViewBag.show_error)
+{
+  
+<div class="alert alert-sm alert-danger">
+    <i class="fa fa-info"></i>
+    The uploaded file is not valid
+    @ViewBag.message
+</div>
+}

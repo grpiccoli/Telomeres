@@ -35,6 +35,7 @@ body {
 .space-v {
     height: 1rem;
 }
+
 .space-h {
     width: 1rem;
 }
@@ -45,10 +46,9 @@ footer {
     background: var(--theme-primary-color);
 }
 
-.flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
     gap: 3px;
     justify-content: center;
 }
-

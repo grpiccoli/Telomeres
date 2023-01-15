@@ -1,22 +1,32 @@
 ﻿using FlowWebApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Telomeres.Data;
+
 
 namespace Telomeres.Controllers
 {
     public class ReportsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ReportsController(ApplicationDbContext context)
+
+        public ReportsController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Reports
         public async Task<IActionResult> Index()
         {
+            //IdentityUser user = await _userManager.FindByNameAsync(User.Identity?.Name).ConfigureAwait(false);
+            ViewBag.show_error = false;
+            ViewBag.show_success = false;
+            ViewBag.message = "";
+
             return View(await _context.Reports.ToListAsync());
         }
 
@@ -49,8 +59,10 @@ namespace Telomeres.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UploadFile")] Report report)
+        public async Task<IActionResult> Create(Report report)
+
         {
+            Console.WriteLine("Ingresando en post create");
             if (ModelState.IsValid)
             {
                 _context.Add(report);
@@ -81,7 +93,7 @@ namespace Telomeres.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Report report)
+        public async Task<IActionResult> Edit(int id, [Bind("UploadFile")] Report report)
         {
             if (id != report.Id)
             {
