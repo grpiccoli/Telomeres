@@ -52,3 +52,22 @@ footer {
     gap: 3px;
     justify-content: center;
 }
+
+
+.input-group .input-group-prepend * {
+    display: inline-block;
+    border: none !important;
+}
+
+.input-group .input-group-append * {
+    display: inline-block;
+    border: none !important;
+}
+
+.input-group {
+    border: silver thin solid;
+}
+
+    .input-group input {
+        border: none;
+    }
