@@ -61,5 +61,13 @@ namespace FlowWebApp.Controllers
                 email);
             return Redirect(url);
         }
+
+
+        public async Task<IActionResult> List()
+        {
+            return View(await _context.Payments.ToListAsync());
+        }
     }
+
+
 }

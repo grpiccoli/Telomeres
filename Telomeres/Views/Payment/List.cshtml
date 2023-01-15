@@ -1,24 +1,22 @@
-﻿@model IEnumerable<FlowWebApp.Models.Report>
+﻿@model IEnumerable<FlowWebApp.Models.Payment>
 
 @{
-    ViewData["Title"] = "My Reports";
+    ViewData["Title"] = "My Payments";
 }
 
 <h3>
-    <b>My Reports</b>
+    <b>My Payments</b>
 </h3>
-<span>Inbox</span>
-<div class="space-v"></div>
 <p>
-    <a asp-action="Create" class="btn btn-primary btn-sm">Request a new report</a>
+    <a asp-action="Create" class="btn btn-primary btn-sm">Payments history</a>
 </p>
-
 <hr />
 
 <table class="table">
     <thead>
         <tr>
             <th>Report</th>
+            <th>Price</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -36,9 +34,10 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.DownloadFile.FileName</td>
+                <td>@item.Report</td>
+                <td>@item.Price</td>
                 <td>
-                    <span style="color: green;">Available </span>
+                    <span style="color: green;">available </span>
                     <span style="color: red;">Pending payment</span>
                 </td>
 
