@@ -18,8 +18,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Report</th>
+            <th style="width: 50%;">Report</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +33,8 @@
                 </td>
             </tr>
         }
+
+       
 
         @foreach (var item in Model)
         {
@@ -50,6 +53,30 @@
                 </td>
             </tr>
         }
+        <tr title="this row is a demo for a existent record for your report">
+            <td>
+                <i class="fa fa-file-pdf"></i>
+                A filename
+            </td>
+            <td>
+                <span style="color: green;" title="This file is allowed for download">
+                    <i class="fa fa-check"></i>
+                    Available
+                </span>
+
+                <span style="color: darkred;" title="This file needs a prior payment for download">
+                    <i class="fa fa-clock"></i>
+                    Pending payment
+                </span>
+            </td>
+            <td>
+                <a href="">
+                    <i class="fa fa-download"></i>
+                    Download
+                </a>
+            </td>
+
+        </tr>
     </tbody>
     <tfoot>
         <tr>
