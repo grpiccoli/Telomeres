@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telomeres", "Telomeres\Telomeres.csproj", "{9C0244B0-B2BA-4478-A8A5-1082C6C09D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telomeres", "Telomeres\Telomeres.csproj", "{9C0244B0-B2BA-4478-A8A5-1082C6C09D1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFastExcelLib", "TestFastExcelLib\TestFastExcelLib.csproj", "{F96831F1-9EC9-4AE6-9345-784D6D814D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9C0244B0-B2BA-4478-A8A5-1082C6C09D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C0244B0-B2BA-4478-A8A5-1082C6C09D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C0244B0-B2BA-4478-A8A5-1082C6C09D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F96831F1-9EC9-4AE6-9345-784D6D814D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96831F1-9EC9-4AE6-9345-784D6D814D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96831F1-9EC9-4AE6-9345-784D6D814D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96831F1-9EC9-4AE6-9345-784D6D814D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
