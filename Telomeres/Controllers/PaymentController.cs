@@ -23,13 +23,24 @@ namespace FlowWebApp.Controllers
             _context = context;
         }
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int? reportId)
         {
+            /*todo: traer info del reporte a procesar*/
+            if (reportId == null | reportId == 0)
+            {
+                /* si no hay codigo, volver*/
+                return View();
+            }
+
+            Report report = new Report();
+
+            /*crear el pago*/
             Payment model = new()
             {
                 Id = 0,
                 Price = 100000,
-                PeriodDate = DateTime.Now
+                PeriodDate = DateTime.Now,
+                Report = report
             };
             return View(model);
         }

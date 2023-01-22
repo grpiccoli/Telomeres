@@ -2,7 +2,7 @@
 
 namespace Telomeres.Services
 {
-    public class AgilentServices : INodeServices
+    public class AgilentService : INodeServices
     {
         public void Dispose()
         {
@@ -35,7 +35,7 @@ namespace Telomeres.Services
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "C:\\Program Files\\nodejs\\node.exe",
+                    FileName = "agilent",
                     Arguments = $"{script} {string.Join(" ", args)}",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,

@@ -24,11 +24,11 @@ namespace Telomeres.Controllers
         // GET: Reports
         public async Task<IActionResult> Index()
         {
-            //IdentityUser user = await _userManager.FindByNameAsync(User.Identity?.Name).ConfigureAwait(false);
+
             ViewBag.show_error = false;
             ViewBag.show_success = false;
             ViewBag.message = "";
-
+            //IdentityUser user = await _userManager.FindByNameAsync(User.Identity?.Name).ConfigureAwait(false);
 
             return View(await _context.Reports.ToListAsync());
         }

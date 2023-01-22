@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FlowWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Telomeres.Data;
@@ -13,6 +14,7 @@ namespace Telomeres.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         readonly IBufferedFileUploadService _bufferedFileUploadService;
+
 
         public UploadFileController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IBufferedFileUploadService bufferedFileUpload)
         {
@@ -29,12 +31,30 @@ namespace Telomeres.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(IFormFile file)
         {
+            Console.WriteLine("post uploadfile");
+            string temporal_filename = Guid.NewGuid().ToString();
+            Console.WriteLine($"{file.FileName} -> {temporal_filename}");
 
             try
             {
-                if (await _bufferedFileUploadService.UploadFile(file))
+                if (await _bufferedFileUploadService.UploadFile(file, temporal_filename))
                 {
                     ViewBag.Message = "File uploaded successful";
+
+                    /*registre a filename*/
+                    Report report = new Report
+                    {
+                        RepoUploadedFilename = temporal_filename,
+                        RepoDownloadFilename = temporal_filename,
+                        ApplicationUser = await _userManager.FindByEmailAsync(User.Identity?.Name)
+                    };
+                    //report.ApplicationUser = await _userManager.FindByIdAsync(User.Identity.GetUserId());
+
+                    _context.Add(report);
+                    _context.SaveChanges();
+
+
+                    return RedirectToAction("Index", "Reports");
                 }
                 else
                 {

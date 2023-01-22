@@ -39,22 +39,47 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.DownloadFile.FileName</td>
-                <td>
-                    <span style="color: green;">Available </span>
-                    <span style="color: red;">Pending payment</span>
+                <td>@item.RepoDownloadFilename</td>
+                <td>@if(item.Payments.Count > 0){
+                    <span style="color: green;" title="This file is allowed for download">
+                        <i class="fa fa-check"></i>
+                        Available
+                    </span>
+
+                    }else {
+                     <span style="color: darkred;" title="This file needs a prior payment for download">
+                           <i class="fa fa-clock"></i>
+                           Pending payment
+                       </span>
+                    }
                 </td>
 
 
+
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @if (item.Payments.Count > 0)
+                    {
+                        <a asp-controller="Payment" asp-action="Index"  asp-route-id="@item.Id" class="btn btn-light btn-sm btn-primary ">
+        <i class="fa fa-download"></i>
+        Download
+                        </a>
+                    }else
+                    {
+                        <a asp-action="Delete"  asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
+     <i class="fa fa-credit-card"></i>
+     Pay
+ </a>  
+                    }
+
+                    <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.Id">
+                        <i class="fa fa-trash"></i>
+                        Delete
+                    </a>
                 </td>
             </tr>
 
         }
-        <tr title="this row is a demo for a existent record for your report">
+       @* <tr title="this row is a demo for a existent record for your report">
             <td>
                 <i class="fa fa-file-pdf" style="color: dimgray"></i>
                 A_filename
@@ -84,11 +109,11 @@
                 </a>
             </td>
 
-        </tr>
+        </tr>*@
     </tbody>
     <tfoot>
         <tr>
-            <th colspan="2">Found (@Model.Count()) matches</th>
+            <th colspan="2">(@Model.Count()) Matches found</th>
         </tr>
     </tfoot>
 </table>

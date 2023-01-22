@@ -2,6 +2,7 @@
 {
     public interface IBufferedFileUploadService
     {
-        Task<bool> UploadFile(IFormFile file);
+        Task<bool> UploadFile(IFormFile file, string temporal_filename);
+
     }
 }
