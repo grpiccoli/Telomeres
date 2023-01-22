@@ -29,6 +29,7 @@ namespace Telomeres.Controllers
             ViewBag.show_success = false;
             ViewBag.message = "";
 
+
             return View(await _context.Reports.ToListAsync());
         }
 

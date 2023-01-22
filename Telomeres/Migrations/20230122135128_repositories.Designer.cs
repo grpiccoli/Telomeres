@@ -9,17 +9,17 @@ using Telomeres.Data;
 
 #nullable disable
 
-namespace Telomeres.Data.Migrations
+namespace Telomeres.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230115153559_begin")]
-    partial class begin
+    [Migration("20230122135128_repositories")]
+    partial class repositories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -67,6 +67,12 @@ namespace Telomeres.Data.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RepoDownloadFilename")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RepoUploadedFilename")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

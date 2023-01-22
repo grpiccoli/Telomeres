@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Telomeres.Data;
+using Telomeres.Interfaces;
+using Telomeres.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +42,7 @@ builder.Services.Configure<FlowSettings>(o =>
     o.EndPoint = new Uri($"https://{preffix}.flow.cl/api");
 });
 builder.Services.AddScoped<IFlow, FlowService>();
+builder.Services.AddScoped<IBufferedFileUploadService, BufferedFileUploadLocalServices>(); /*upload file service*/
 builder.Services.AddAntiforgery(options =>
 {
     options.FormFieldName = "__RequestVerificationToken";
