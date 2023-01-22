@@ -16,6 +16,7 @@ import fetch from "node-fetch";
             console.log(s);
             break;
         default:
+            console.log(args[0])
             await fetch(`https://sandbox.flow.cl/api/${args[0]}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' },
