@@ -1,0 +1,14 @@
+﻿<tr>
+    <td>@ViewBag.DownloadFile.FileName</td>
+    <td>
+        <span style="color: green;">Available </span>
+        <span style="color: red;">Pending payment</span>
+    </td>
+
+
+    <td>
+        <a asp-action="Edit" asp-route-id="@ViewBag.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@ViewBag.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@ViewBag.Id">Delete</a>
+    </td>
+</tr>

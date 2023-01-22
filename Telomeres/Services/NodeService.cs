@@ -2,8 +2,33 @@
 
 namespace Telomeres.Services
 {
-    public class NodeService : INodeService
+    public class NodeService : INodeServices
     {
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> InvokeAsync<T>(string moduleName, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> InvokeAsync<T>(string moduleName, CancellationToken cancellationToken, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> InvokeExportAsync<T>(string moduleName, string exportedFunctionName, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> InvokeExportAsync<T>(string moduleName, string exportedFunctionName, CancellationToken cancellationToken, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Run(string script, string[] args)
         {
             using Process process = new()
