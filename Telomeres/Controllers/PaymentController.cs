@@ -25,6 +25,8 @@ namespace FlowWebApp.Controllers
         [HttpGet]
         public IActionResult Index(int? reportId)
         {
+            Console.WriteLine($"Report to pay {reportId}");
+
             /*todo: traer info del reporte a procesar*/
             if (reportId == null | reportId == 0)
             {
