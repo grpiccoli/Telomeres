@@ -29,6 +29,8 @@
         </tr>
     </thead>
     <tbody>
+        
+        @*no reports, show message*@
         @if (Model.Count() == 0)
         {
             <tr>
@@ -40,7 +42,7 @@
         }
 
 
-
+        @*list reports for user*@
         @foreach (var item in Model)
         {
             <tr>
@@ -58,24 +60,23 @@
                        </span>
                     }
                 </td>
-
-
-
                 <td>
+                    @*if has payment, can download,else pay*@
                     @if (item.Payments.Count > 0)
                     {
-                        <a asp-controller="Payment" asp-action="Index"  asp-route-id="@item.Id" class="btn btn-light btn-sm btn-primary ">
-        <i class="fa fa-download"></i>
-        Download
+                        <a asp-controller="Payments" asp-action="Index"  asp-route-id="@item.Id" class="btn btn-light btn-sm btn-primary ">
+                            <i class="fa fa-download"></i>
+                            Download
                         </a>
                     }else
                     {
-                        <a asp-action="Delete"  asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
-     <i class="fa fa-credit-card"></i>
-     Pay
- </a>  
+                        <a asp-controller="Payment"  asp-action="Index"  asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
+                             <i class="fa fa-credit-card"></i>
+                             Pay
+                         </a>  
                     }
 
+                    @*delete report*@
                     <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.Id">
                         <i class="fa fa-trash"></i>
                         Delete
