@@ -28,20 +28,21 @@ namespace FlowWebApp.Controllers
             Console.WriteLine($"Report to pay {reportId}");
 
             /*todo: traer info del reporte a procesar*/
-            if (reportId == null | reportId == 0)
-            {
-                /* si no hay codigo, volver*/
-                return RedirectToAction("Index", "Reports");
-            }
+            //if (reportId == null | reportId == 0)
+            //{
+            //    /* si no hay codigo, volver*/
+            //    return RedirectToAction("Index", "Reports");
+            //}
 
-            Report report = new Report();
+            var report = _context.Reports.First();
 
             /*crear el pago*/
             Payment model = new()
             {
                 Id = 0,
                 Price = 100000,
-                PeriodDate = DateTime.Now,
+                PeriodDate = DateTime.Now
+                ,
                 Report = report
             };
             return View(model);

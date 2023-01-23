@@ -18,13 +18,13 @@
 
 @if (message.Length > 0)
 {
-    <div class="alert alert-success">@ViewBag.Message</div>
+    <div class="alert alert-success">@message</div>
 }
 
 <table class="table">
     <thead>
         <tr>
-            <th style="width: 50%;">Report</th>
+            <th style="width: 50%;">Report Id</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -47,7 +47,10 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.RepoDownloadFilename</td>
+                <td>
+                    <i class="fa fa-file-pdf"></i>
+                    @item.RepoDownloadFilename
+                    </td>
                 <td>@if(item.Payments.Count > 0){
                     <span style="color: green;" title="This file is allowed for download">
                         <i class="fa fa-check"></i>
@@ -65,13 +68,13 @@
                     @*if has payment, can download,else pay*@
                     @if (item.Payments.Count > 0)
                     {
-                        <a asp-controller="Payments" asp-action="Index"  asp-route-id="@item.Id" class="btn btn-light btn-sm btn-primary ">
+                        <a asp-controller="Payment" asp-action="Index"  asp-route-id="@item.Id" class="btn btn-light btn-sm btn-primary ">
                             <i class="fa fa-download"></i>
                             Download
                         </a>
                     }else
                     {
-                        <a asp-controller="Payment"  asp-action="Index"  asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
+                        <a asp-controller="Payment"  asp-action="Index" asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
                              <i class="fa fa-credit-card"></i>
                             To pay
                          </a>  
