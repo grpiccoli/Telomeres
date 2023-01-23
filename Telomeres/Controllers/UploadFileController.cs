@@ -53,7 +53,8 @@ namespace Telomeres.Controllers
                     _context.Add(report);
                     _context.SaveChanges();
 
-
+                    /*redirecto to my reports*/
+                    ViewBag.Message = "Report request created successfully";
                     return RedirectToAction("Index", "Reports");
                 }
                 else

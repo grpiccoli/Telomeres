@@ -15,6 +15,11 @@
 
 <hr />
 
+@if (ViewBag.Message != null )
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
 <table class="table">
     <thead>
         <tr>

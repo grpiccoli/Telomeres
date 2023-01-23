@@ -26,7 +26,11 @@ html {
 
 body {
     margin-bottom: 60px;
-    background: var(--theme-background-secondary);
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0.4864320728291317) 0%, rgba(227,232,233,1) 56%);
+    background: url("/bg_telomeres.png") right bottom no-repeat;
+    background-size: contain;
+    backdrop-filter: blur(5px);
     font-family: 'Open Sans', sans-serif;
     flex: 1;
     overflow: hidden;
