@@ -34,28 +34,28 @@ namespace Telomeres.Controllers
         }
 
         // GET: Reports/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Reports == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null || _context.Reports == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var report = await _context.Reports
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (report == null)
-            {
-                return NotFound();
-            }
+        //    var report = await _context.Reports
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (report == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(report);
-        }
+        //    return View(report);
+        //}
 
         // GET: Reports/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Reports/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -76,55 +76,55 @@ namespace Telomeres.Controllers
         }
 
         // GET: Reports/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Reports == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null || _context.Reports == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var report = await _context.Reports.FindAsync(id);
-            if (report == null)
-            {
-                return NotFound();
-            }
-            return View(report);
-        }
+        //    var report = await _context.Reports.FindAsync(id);
+        //    if (report == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(report);
+        //}
 
         // POST: Reports/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UploadFile")] Report report)
-        {
-            if (id != report.Id)
-            {
-                return NotFound();
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("UploadFile")] Report report)
+        //{
+        //    if (id != report.Id)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(report);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ReportExists(report.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(report);
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(report);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!ReportExists(report.Id))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(report);
+        //}
 
         // GET: Reports/Delete/5
         public async Task<IActionResult> Delete(int? id)

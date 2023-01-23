@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "My Reports";
+    string message = ViewBag.Message;
 }
 
 <h3>
@@ -15,7 +16,7 @@
 
 <hr />
 
-@if (ViewBag.Message != null )
+@if (message.Length > 0)
 {
     <div class="alert alert-success">@ViewBag.Message</div>
 }
@@ -72,7 +73,7 @@
                     {
                         <a asp-controller="Payment"  asp-action="Index"  asp-route-id="@item.Id"  class="btn btn-sm btn-secondary">
                              <i class="fa fa-credit-card"></i>
-                             Pay
+                            To pay
                          </a>  
                     }
 

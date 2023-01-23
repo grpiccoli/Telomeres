@@ -29,7 +29,7 @@ namespace FlowWebApp.Controllers
             if (reportId == null | reportId == 0)
             {
                 /* si no hay codigo, volver*/
-                return View();
+                return RedirectToAction("Index", "Reports");
             }
 
             Report report = new Report();

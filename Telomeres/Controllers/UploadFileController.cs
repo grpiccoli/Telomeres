@@ -55,12 +55,12 @@ namespace Telomeres.Controllers
 
                     /*redirecto to my reports*/
                     ViewBag.Message = "Report request created successfully";
-                    return RedirectToAction("Index", "Reports");
                 }
                 else
                 {
-                    ViewBag.Message = "File uploaded failed";
+                    return RedirectToAction("Index", "Reports");
                 }
+                return RedirectToAction("Index", "Reports");
             }
             catch (Exception ex)
             {
