@@ -4,7 +4,7 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "crypto-js": "4.1.1",
+    "crypto-js": "4.2.0",
     "node-fetch": "3.2.10"
   }
 }
